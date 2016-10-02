@@ -8,4 +8,5 @@ void setup() {
 
 void loop() {
   find_corner();
+  Serial.
 }
