@@ -12,8 +12,8 @@
  * @return the resultant vector from adding all the vectors in the vectors array (angle of resultant vector will be in degrees)
 */
  
-struct Vector add_vectors(struct Vector vectors[], int length) {
-  struct Vector resultant_vector;
+Vector add_vectors(Vector vectors[], int length) {
+  Vector resultant_vector;
   resultant_vector.distance = 0;
   resultant_vector.angle = 0;
 
@@ -32,8 +32,8 @@ struct Vector add_vectors(struct Vector vectors[], int length) {
  * @param v2 another Vector struct to be added
  * @return the resultant vector from adding Vectors v1 and v2 (angle of resultant vector will be in degrees)
  */
-struct Vector add_two_vectors(struct Vector v1, struct Vector v2) {
-  struct Vector resultant_vector;
+Vector add_two_vectors(Vector v1, Vector v2) {
+  Vector resultant_vector;
 
   // calculate coordinates of resultant vector
   double x1 = v1.distance * cos(v1.angle * TO_RADIANS);

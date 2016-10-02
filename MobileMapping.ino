@@ -29,7 +29,10 @@ void loop() {
            state++;
            break;
    case 2: vector = find_corner();
-           resultant_vector = add_two_vectors(resultant_vector, vector);   
+           resultant_vector = add_two_vectors(resultant_vector, vector);
+           if(abs(resultant_vector.distance) < 0.5) {
+            state++;
+           }
            break;
   }
 }
