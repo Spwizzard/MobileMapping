@@ -1,3 +1,4 @@
+#include "get_parallel.h"
 #ifndef FINDCORNER_H_
 #define FINDCORNER_H_
 

@@ -1,24 +1,24 @@
-#include <iRobotSerial.h>
+#include "irobot_serial.h"
 #include "get_ultrasonic.h"
 
-//for direction - true = clockwise, false = counterclockwise
-void move_parallel(boolean direction) {
-  int type;
-  float sensorL = get_ultrasonic(type,'L');
-  float sensorR = get_ultrasonic(type,'R');
+void get_parallel() {
+  
+  float sensorL = get_ultrasonic(CM,'L');
+  float sensorR = get_ultrasonic(CM,'R');
   while((sensorR - sensorL) < .1 && (sensorR - sensorL) > -.1){
+   
     if((sensorR - sensorL) > 0){
-      serialDrive(0,1); 
+    serial_drive(0,1); 
+    sensorL = get_ultrasonic(CM,'L');
+    sensorR = get_ultrasonic(CM,'R');
     }
     else{
-      serialDrive(0,-1);
+    serial_drive(0,-1);
+    sensorL = get_ultrasonic(CM,'L');
+    sensorR = get_ultrasonic(CM,'R');
     }
-    if(direction){
-      serialDrive(0,-90);  
-    }
-    else{
-      serialDrive(0,90);  
-    }  
+  
+  serial_drive(0,-90);   
   }
 }
 

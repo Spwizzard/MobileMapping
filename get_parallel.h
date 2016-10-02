@@ -1,6 +1,8 @@
-#ifndef GETPARALLEL_H_
-#include GETPARALLEL_H_
+#include "irobot_serial.h"
+#include "get_ultrasonic.h"
 
-void move_parallel(boolean direction);
 
-#endif
+//for direction - true = clockwise, false = counterclockwise
+void get_parallel();
+
+
