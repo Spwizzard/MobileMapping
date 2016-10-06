@@ -12,17 +12,20 @@ Vector resultant_vector;
 int state = 0;
 
 void setup() {
+  Serial.begin(9600);
   serial_setup();
+  ultrasonic_setup();
 }
 
 void loop() {
   switch(state)
-  {case 0: forward_move(15); 
+  {case 0: forward_move(30);
            get_parallel();
-           forward_move(15);
+           forward_move(30);
            state++;
            break;
-   case 1: origin;
+   case 1: 
+           origin;
            origin.distance = origin.angle = 0;
            vector = find_corner();
            resultant_vector = add_two_vectors(origin,vector);

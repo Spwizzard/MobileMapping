@@ -4,6 +4,7 @@
 #define TO_RADIANS PI/180
 #define TO_DEGREES 180/PI
 
+#include "find_corner.h"
 
 /**
  * adds two vectors together to get one resultant vector

@@ -3,7 +3,7 @@
 #include "forward_move.h"
 #include "get_parallel.h"
 
-#define MIN_DIST 15 //e is 15 cm
+#define MIN_DIST 30 //e is 30 cm
 
 //find_corner function
 Vector find_corner(){

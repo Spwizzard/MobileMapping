@@ -14,6 +14,14 @@ float usec_to_mm(long uSec){
   return (uSec / 2.91) / 2;
 }
 
+void ultrasonic_setup() {
+  //configure pins, making sure each time they are right
+  pinMode(OUT_PIN_R, OUTPUT);
+  pinMode(IN_PIN_R,  INPUT);
+  pinMode(OUT_PIN_L, OUTPUT);
+  pinMode(IN_PIN_L, INPUT);
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 //                          get_ultrasonic
@@ -39,12 +47,6 @@ float get_ultrasonic(int type, char side){
     nInPin  = IN_PIN_R;
     nOutPin = OUT_PIN_R;
   }
-
-  //Do the stuff
-
-  //configure pins, making sure each time they are right
-  pinMode(nOutPin, OUTPUT);
-  pinMode(nInPin,  INPUT);
   
   digitalWrite(nOutPin, LOW);
   delayMicroseconds(2);
