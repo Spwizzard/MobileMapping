@@ -2,9 +2,9 @@
 #define IROBOTSERIAL_H_
 
 // serial pin to read from
-#define rxPin -1
+#define rxPin 6
 // serial pin to write on
-#define txPin -1
+#define txPin 7
 // special case values in irobot documentation for radius
 #define CLOCKWISE 0xFFFF
 #define COUNT_CLOCKWISE 1
