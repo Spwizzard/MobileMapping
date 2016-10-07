@@ -2,7 +2,7 @@
 #define IROBOTSERIAL_H_
 
 // serial pin to read from
-#define rxPin 6
+#define rxPin 8
 // serial pin to write on
 #define txPin 7
 // special case values in irobot documentation for radius

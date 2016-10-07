@@ -3,6 +3,6 @@
 
 
 //for direction - true = clockwise, false = counterclockwise
-void get_parallel();
+float get_parallel();
 
 

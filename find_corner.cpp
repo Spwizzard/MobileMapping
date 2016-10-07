@@ -2,21 +2,21 @@
 #include "irobot_serial.h"
 #include "forward_move.h"
 #include "get_parallel.h"
+#include <Arduino.h>
 
 #define MIN_DIST 30 //e is 30 cm
 
 //find_corner function
 Vector find_corner(){
-    
-  serial_16_read(DISTANCE_READ); //setting initial distanceTravelled to 0.
+
+  int starttime;
+  starttime = millis();
   forward_move(MIN_DIST);
-  int distanceTraveled = serial_16_read(DISTANCE_READ); 
+  int distanceTraveled = (millis() - starttime) / 10;
   //returning the distanceTravelled during forward_move();
   //storing distanceTravelled in variable
-  
-  serial_16_read(ANGLE_READ);   //setting initial changeInAngle to 0.
-  get_parallel();
-  int changeInAngle = serial_16_read(ANGLE_READ);  
+
+  int changeInAngle = get_parallel();
   //returning the changeInAngle during move_parallel();
   //storing changeInAngle in variable
 

@@ -4,6 +4,7 @@
 #include <SoftwareSerial.h>
 
 SoftwareSerial softSerial = SoftwareSerial(rxPin, txPin);
+int time_start = 0;
 
 void serial_setup() {
   // set pin modes
@@ -33,27 +34,34 @@ void serial_drive(int velocity, int radius) {
   sequence[2] = (unsigned char)(radius >> 8);
   sequence[3] = (unsigned char)radius;
   serial_out(137, sequence, 4);
-  //softSerial.write(137);
 }
 
 void serial_read(unsigned char packID, unsigned char sequence[], int len) {
-  unsigned char id[] = {packID};
-  serial_out(142, id, 1);
-  delay(250);
+  unsigned char id[] = {1, packID};
+  serial_out(149, id, 2);
+  delay(150);
   
   int avail = softSerial.available();
-  // should NOT happen
+
   if(avail < len) {
     len = avail;
   }
-  
+  len = 0;
   for(int i = 0; i < len; i++) {
     sequence[i] = softSerial.read();
   }
 }
 
+/*int read_start() {
+  time_start = 
+}*/
+
+//int serial_16_read(
+
 int serial_16_read(unsigned char packID) {
   unsigned char sequence[2];
+  sequence[0] = 0;
+  sequence[1] = 0;
   serial_read(packID, sequence, 2);
 
   //                      low                      high
